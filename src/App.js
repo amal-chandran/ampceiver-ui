@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { LoginSignup, Home } from "./Views";
+import { store, history } from "./Helper";
+import { Provider, connect } from "react-redux";
+import { PrivateRoute, Notifi, JSSWrapper } from "./Components";
+import { ConnectedRouter } from 'react-router-redux';
+
+import {
+  Route, Switch, Redirect
+} from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <JSSWrapper>
+        <Provider store={store}>
+          <ConnectedRouter history={history}>
+            <div>
+              <Notifi />
+              <Switch>
+                <PrivateRoute path="/home" component={Home} />
+                <Route exact path="/" component={LoginSignup} />
+              </Switch>
+            </div>
+          </ConnectedRouter>
+        </Provider >
+      </JSSWrapper>
     );
   }
 }

@@ -1,0 +1,7 @@
+{
+    "url": {
+        "login": "https://auth.antimalarial59.hasura-app.io/v1/login",
+        "signup": "https://auth.antimalarial59.hasura-app.io/v1/signup",
+        "logout": "https://auth.antimalarial59.hasura-app.io/v1/user/logout"
+    }
+}
