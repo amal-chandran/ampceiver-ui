@@ -7,7 +7,7 @@ export default ({ children }) => {
     return (
         <div>
             <Header Layout={"UserLayout"} />
-            <div>
+            <div style={{ paddingTop: "14px" }}>
                 {children}
             </div>
         </div>

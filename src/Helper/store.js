@@ -39,6 +39,10 @@ const authFormInitState = {
     repassword: ""
 };
 
+const streamFormInitState = {
+    frequency: "",
+};
+
 
 const store = createStore(
     combineReducers({
@@ -48,6 +52,7 @@ const store = createStore(
         router: routerReducer,
         ...createForms({
             authForm: authFormInitState,
+            streamForm: streamFormInitState,
         })
     }),
     applyMiddleware(thunk, logger, customMiddleWare, middleware)

@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { LoginSignup, Home } from "./Views";
+import {
+  LoginSignup, Home,
+  YourStreams, StreamControl
+} from "./Views";
 import { store, history } from "./Helper";
 import { Provider, connect } from "react-redux";
-import { PrivateRoute, Notifi, JSSWrapper } from "./Components";
+import {
+  PrivateRoute, Notifi,
+  JSSWrapper, StreamReader
+} from "./Components";
 import { ConnectedRouter } from 'react-router-redux';
 
 import {
@@ -18,7 +24,10 @@ class App extends Component {
             <div>
               <Notifi />
               <Switch>
-                <PrivateRoute path="/home" component={Home} />
+                <Route path="/home" component={Home} />
+                <Route path="/yourstreams" component={YourStreams} />
+                <Route path="/streamcontrol/output" component={StreamReader} />
+                <Route path="/streamcontrol/:streamid" component={StreamControl} />
                 <Route exact path="/" component={LoginSignup} />
               </Switch>
             </div>

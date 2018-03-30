@@ -11,7 +11,7 @@ import {
 } from 'material-ui';
 
 
-import { Wrapper, Uploader, TagIcon } from "./../Components";
+import { Wrapper, Uploader } from "./../Components";
 import config from "./../Config/config.json";
 import { authHelper } from "./../Helper";
 import { authActions, notifiActions } from "./../Actions";
@@ -29,8 +29,8 @@ class Home extends Component {
                             <Paper>
                                 <List component="nav">
                                     {[
-                                        { primary: "Explore", secondary: "All public streams" },
-                                        { primary: "Private", secondary: "Private streams" }
+                                        { primary: "Streaming", secondary: "Active streaming devices" },
+                                        { primary: "Devices", secondary: "Connected devices" }
                                     ].map((data) => (
                                         <ListItem className={classes.ListItemRoot} button>
                                             {/* <ListItemIcon className={classes.ListIconRoot}>
@@ -77,14 +77,9 @@ class Home extends Component {
                                                     <div><a href="#">@apple</a></div>
                                                 </Grid>
 
-                                                <Grid item xs>
-                                                    <div style={{ width: "16rem" }}>
-                                                        <TagIcon data={[
-                                                            { name: "FM", color: "default" },
-                                                            { name: "FM Tunner", color: "blue" }
-                                                        ]} />
-                                                    </div>
-
+                                                <Grid item xs className={classes.TagIcon}>
+                                                    <a href="#">FM</a>
+                                                    <a href="#" className={"blue"}>FM Tunner</a>
                                                 </Grid>
                                             </Grid>
 
@@ -147,6 +142,21 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const style = {
+    TagIcon: {
+        // background: "gray",
+        "& a": {
+            marginRight: "1rem",
+            fontSize: "15px",
+            background: "#5eb311",
+            color: "#fff",
+            textDecoration: "none",
+            fontWeight: "bold",
+            padding: "0px 7px"
+        },
+        "& a.blue": {
+            background: "#77e0a6",
+        }
+    },
     ListIconRoot: {
         marginRight: "0px"
     },
